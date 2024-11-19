@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Kayden Miller
+* Assignment 7
+* Manager that controlls various gameobjects and scene
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
