@@ -49,13 +49,19 @@ public class SpawnManagerX : MonoBehaviour
         }
 
         // Spawn number of enemy balls based on wave number
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
-            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation).GetComponent<EnemyX>().speed = (10 + (5 * waveCount));
+        }
+        if(waveCount-1 == GameManager.enemiesLost)
+        {
+            GameManager.gameOver = true;
         }
 
         waveCount++;
+        GameManager.enemiesLost = 0;
         ResetPlayerPosition(); // put player back at start
+        GameManager.enemiesLost = 0;
 
     }
 
